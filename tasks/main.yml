@@ -44,7 +44,7 @@
         name: '{{ item }}'
         owner: elasticsearch
         group: elasticsearch
-        mode: 0755
+        mode: '755'
         state: directory
       loop:
         - '{{ elasticsearch_data_directory }}'
@@ -56,7 +56,7 @@
   template:
     src: '{{ item }}'
     dest: /etc/elasticsearch/elasticsearch.yml
-    mode: 0644
+    mode: '644'
   become: yes
   notify: reload elasticsearch
   tags: [elasticsearch, config]
